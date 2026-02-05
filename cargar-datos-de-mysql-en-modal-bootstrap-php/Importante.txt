@@ -1,0 +1,9 @@
+Author: BaulPHP
+Author URL: https://baulphp.com/
+Author Email: nestor@baulphp.com
+Tutorial Enlace: https://baulphp.com/download/cargar-datos-de-mysql-en-modal-bootstrap-php/
+
+Instrucciones:
+
+## Importante archivo tbl_personal.sql, se tiene que ejecutar en MySQL
+## Actualizar db.php
