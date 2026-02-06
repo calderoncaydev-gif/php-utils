@@ -1,0 +1,6 @@
+Id,Nombre,Tipo,Rol
+1,Leon,Salvaje,Jefe
+2,Tigre,Salvaje,CEO
+3,Jaguar,Salvaje,"Desarrollador Senior"
+4,Pantera,Salvaje,"Desarrollador Junior"
+5,Gato,Domestico,Practicante

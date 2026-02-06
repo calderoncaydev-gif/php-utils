@@ -1,0 +1,13 @@
+.product {
+	width:150px;
+	padding:0px 10px 0px 0px;
+	margin-top:10px;
+}
+
+.product_image {
+	width:200px;
+	height:200px;
+}
+.clear_both {
+	clear:both;
+}

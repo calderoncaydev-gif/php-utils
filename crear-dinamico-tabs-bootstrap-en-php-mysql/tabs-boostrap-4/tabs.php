@@ -1,0 +1,34 @@
+<?php 
+include_once("db_connect.php");
+$category_sql = "SELECT id, name, description FROM categorias LIMIT 10";
+$resultset = mysqli_query($conn, $category_sql) or die("database error:". mysqli_error($conn));
+$active_class = 0 ;
+$category_html = '';
+$product_html = '';	
+while( $category = mysqli_fetch_assoc($resultset) ) {
+	$current_tab = "";
+	$current_content = "";
+	if(!$active_class) {
+		$active_class = 1;
+		$current_tab = 'active show';
+		$current_content = 'active show';
+	}	
+	$category_html.= '<li class="nav-item"><a href="" data-target="#'.$category['name'].'" data-toggle="tab" class="nav-link small text-uppercase '.$current_tab.'">'.            
+	$category['name'].'</a></li>';
+	$product_html .= '<div id="'.$category["name"].'" class="tab-pane fade '.$current_content.'">';		
+		$product_sql = "SELECT id, p_name, p_image, price FROM categoria_productos WHERE id = ".$category["id"];
+		$product_results = mysqli_query($conn, $product_sql) or die("database error:". mysqli_error($conn));
+		if(!mysqli_num_rows($product_results)) {	
+			$product_html .=  '<br>No hay productos!';			
+		}
+		$product_html .= '<div class="row">';
+		while( $product = mysqli_fetch_assoc($product_results) ) {				
+			$product_html .= '<div class="col-md-3 product">';
+			$product_html .= '<img src="images/'.$product["p_image"].'" class="img-responsive img-thumbnail product_image" />';
+			$product_html .=  '<h4>'.$product["p_name"].'</h4>';
+			$product_html .=  '<h4>Precio: $'.$product["price"].'</h4>';
+			$product_html .=  '</div>';				
+		}	
+		$product_html .=  '<div class="clear_both"></div></div></div>';			
+}	
+?>
